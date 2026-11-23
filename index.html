@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsalan.Github — Premium Interactive Technology & Web Experiences</title>
+  <meta name="description" content="Your Vision. Our Code. Unbelievable Sites. We craft MNC-grade interactive websites, 3D WebGL experiences, and high-performance digital platforms.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Ambient Light Follower -->
+  <div class="ambient-glow"></div>
+
+  <!-- Custom Cursor (Desktop) -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-brand">
+      <span style="display:inline-block; width:10px; height:10px; background:#fff; border-radius:2px;"></span>
+      ARSALAN.GITHUB
+    </div>
+    <div class="loader-indicator-bar">
+      <div class="loader-indicator-progress"></div>
+    </div>
+  </div>
+
+  <!-- Floating Navigation Header -->
+  <header class="nav-header">
+    <nav class="nav-pill" aria-label="Main Navigation">
+      <a href="#home" class="brand-link">
+        <span class="brand-icon">A</span>
+        <span class="scramble-hover">Arsalan.Github</span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item active"><a href="#home" class="scramble-hover">Home</a></li>
+        <li class="nav-item"><a href="#about" class="scramble-hover">About</a></li>
+        <li class="nav-item"><a href="#services" class="scramble-hover">Services</a></li>
+        <li class="nav-item"><a href="#contact" class="scramble-hover">Contact</a></li>
+      </ul>
+
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="#contact" class="btn btn-primary magnetic-btn" style="padding: 0.5rem 1.15rem; font-size: 0.82rem;">
+          Let's Build
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true">
+    <ul class="mobile-nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div style="margin-top: 2.5rem;">
+      <a href="https://wa.me/919135944050" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+        WhatsApp: +91 9135944050
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN VIEWS CONTAINER -->
+  <main>
+
+    <!-- ====================================================================
+         VIEW 1: HOME PAGE — The Liquid Mercury & Glass Flagship
+         ==================================================================== -->
+    <div id="view-home" class="page-view">
+      
+      <!-- HERO SECTION -->
+      <section class="hero-wrapper">
+        <div class="container hero-grid">
+          
+          <div class="hero-content">
+            <div>
+              <span class="micro-label">MNC-GRADE INTERACTIVE WEB STUDIO</span>
+            </div>
+            <h1 class="headline-hero">
+              Your Vision.<br>Our Code.<br><span style="color: #ffffff; text-shadow: 0 0 35px rgba(255,255,255,0.3);">Unbelievable Sites.</span>
+            </h1>
+            <p class="subtitle">
+              We build interactive digital experiences that people actually want to explore. Liquid glass aesthetics, magnetic molten physics, and clean engineering.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#contact" class="btn btn-primary magnetic-btn">
+                <span>Let's Build Something</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#services" class="btn btn-glass magnetic-btn">
+                <span>Explore What We Do</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Magnetic Molten Metal Canvas with Bold Animated Badge -->
+          <div class="hero-3d-canvas-container" id="webgl-glass-container">
+            <canvas id="webgl-glass-canvas"></canvas>
+            
+            <div class="canvas-animated-badge">
+              <span class="pulse-dot"></span>
+              <span class="animated-pill-text" id="hero-badge-text">Feel It.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROBLEM STATEMENT SECTION -->
+      <section class="section-padding">
+        <div class="container">
+          <div class="problem-statement-box">
+            <span class="micro-label" style="margin-bottom: 1.5rem;">THE INDUSTRY REALITY</span>
+            <p class="problem-lead">
+              Most websites are digital brochures collecting dust.
+            </p>
+            <span class="problem-punchline">
+              We build the ones people actually want to play with.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT WE CREATE SECTION -->
+      <section class="section-padding" style="padding-top: 2rem;">
+        <div class="container">
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; max-width: 650px;">
+            <span class="micro-label">OUR EXPERTISE</span>
+            <h2 class="headline-section">Engineered for impact. Crafted for emotion.</h2>
+            <p class="subtitle">Every experience is designed from scratch with custom motion physics, bespoke typography, and high-performance WebGL.</p>
+          </div>
+
+          <div class="services-grid">
+            
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">01 / MOTION</span>
+                <h3 class="service-title scramble-hover">Interactive Websites</h3>
+                <p class="service-desc">Websites with meaningful interactions, fluid motion, and engaging kinetic interfaces that captivate every visitor.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">02 / 3D & WEBGL</span>
+                <h3 class="service-title scramble-hover">3D Animated Websites</h3>
+                <p class="service-desc">Immersive 3D environments, spatial depth, real-time lighting shaders, and hardware-accelerated WebGL visuals.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">03 / ENTERPRISE</span>
+                <h3 class="service-title scramble-hover">Business Websites</h3>
+                <p class="service-desc">MNC-level digital flagships that command immediate authority, elevate brand valuation, and convert high-ticket leads.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">04 / CREATIVE</span>
+                <h3 class="service-title scramble-hover">Portfolio Websites</h3>
+                <p class="service-desc">Personal and professional portfolios that turn personal brands into magnetic, unforgettable digital showcases.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">05 / COMMERCE</span>
+                <h3 class="service-title scramble-hover">E-commerce Websites</h3>
+                <p class="service-desc">High-speed, frictionless shopping experiences engineered for maximum conversion, fluid cart flows, and seamless checkouts.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="liquid-glass-card tilt-card service-card">
+              <div>
+                <span class="service-number">06 / RE-ENGINEERING</span>
+                <h3 class="service-title scramble-hover">Website Redesign</h3>
+                <p class="service-desc">Transform sluggish, outdated templates into modern, responsive, and razor-sharp digital powerhouses.</p>
+              </div>
+              <a href="#services" class="service-link">
+                <span>Explore Details</span>
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY ARSALAN.GITHUB SECTION (INTERACTIVE LIQUID GLASS SPEC GRID) -->
+      <section class="section-padding">
+        <div class="container">
+          <div style="text-align: center; max-width: 750px; margin: 0 auto;">
+            <span class="micro-label">ENGINEERING PHILOSOPHY</span>
+            <h2 class="headline-section" style="margin-top: 0.8rem;">Why Arsalan.Github</h2>
+            <p class="subtitle" style="margin: 0.8rem auto 0;">Interactive liquid glass engineering. No agency fluff. Pure execution.</p>
+          </div>
+
+          <div class="spec-grid">
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">01</span> No Bloated Templates
+              </h4>
+              <p class="spec-desc">Zero reliance on generic WordPress themes or bloated page builders that drag your performance score into the mud.</p>
+            </div>
+
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">02</span> Clean GitHub Workflows
+              </h4>
+              <p class="spec-desc">Transparent codebases, modern version control, strict linting, and automated continuous deployment pipelines.</p>
+            </div>
+
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">03</span> Purposeful Motion
+              </h4>
+              <p class="spec-desc">Every kinetic interaction and scroll transformation serves a narrative purpose, never distracting from your core message.</p>
+            </div>
+
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">04</span> Zero Lifeless Brochures
+              </h4>
+              <p class="spec-desc">We build interactive spaces that invite touch, exploration, and visceral user delight rather than passive scrolling.</p>
+            </div>
+
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">05</span> Performance-First
+              </h4>
+              <p class="spec-desc">Targeting fluid 60 FPS transitions, sub-second First Contentful Paint, and lean, hand-optimized asset bundles.</p>
+            </div>
+
+            <div class="liquid-glass-card tilt-card spec-item">
+              <h4 class="spec-title">
+                <span style="color:#ffffff; font-family: var(--font-mono);">06</span> Direct Communication
+              </h4>
+              <p class="spec-desc">You talk directly to the engineer and designer building your site. No account managers playing telephone.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIGNATURE ENDING: 3D FLIP PRESENTATION -->
+      <section class="signature-ending-section">
+        <div class="signature-container">
+          <div class="sig-flip-stage">
+            <div class="sig-flip-card">
+              <!-- Front Face: THIS WAS MINE. -->
+              <div class="sig-card-face sig-face-front">
+                <div class="sig-title-bold">THIS WAS MINE.</div>
+              </div>
+
+              <!-- Back Face: GET YOURS NOW! -->
+              <div class="sig-card-face sig-face-back">
+                <div class="sig-title-bold">GET YOURS NOW!</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandatory lowercase line (Preserved exact style) -->
+          <p class="sig-sub-statement">
+            if you don't get it you're f*cked in today's era
+          </p>
+
+          <div class="sig-cta-holder">
+            <a href="#contact" class="btn btn-primary magnetic-btn" style="padding: 1rem 2.4rem; font-size: 1.05rem;">
+              <span>Start Your Project</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ====================================================================
+         VIEW 2: ABOUT PAGE — Authentic Manifesto & Interactive Visualizer
+         ==================================================================== -->
+    <div id="view-about" class="page-view" style="display: none;">
+      <section class="section-padding" style="padding-top: calc(var(--nav-height) + 4rem);">
+        <div class="container" style="max-width: 1040px;">
+          
+          <span class="micro-label">AUTHENTIC MANIFESTO</span>
+          <h1 class="headline-section" style="margin-top: 1rem; margin-bottom: 2.5rem; font-size: clamp(2.4rem, 5vw, 4.2rem);">
+            Obsession-level code.<br>Zero agency nonsense.
+          </h1>
+
+          <!-- Foundation Text block as instructed -->
+          <div class="liquid-glass-card" style="margin-bottom: 4rem; border-left: 3px solid #ffffff; padding: 2.75rem;">
+            <p class="manifesto-scrub-text" style="font-weight: 500;">
+              "Most websites are digital brochures collecting dust. We build the ones people actually want to play with.
+            </p>
+            <p style="font-size: clamp(1.05rem, 1.7vw, 1.25rem); line-height: 1.65; color: var(--text-secondary); margin-top: 1.25rem;">
+              Backed by obsession-level engineering and clean GitHub workflows, Arsalan turns wild ideas into fluid, MNC-grade interactive experiences. No bloated templates. No 6-month agency meetings. Just pure motion, clean code, and websites that make your competitors look like they're still running on Internet Explorer."
+            </p>
+          </div>
+
+          <!-- INTERACTIVE FEATURE: BEFORE VS AFTER COMPARISON SLIDER -->
+          <div style="margin-bottom: 4.5rem;">
+            <div style="margin-bottom: 1.25rem;">
+              <span class="micro-label">INTERACTIVE BENCHMARK</span>
+              <h3 style="font-size: 1.6rem; margin-top: 0.5rem;">Drag to Compare the Difference</h3>
+              <p style="color: var(--text-secondary); font-size: 0.95rem;">Drag the divider horizontally to see what sets an Arsalan.Github flagship apart from an ordinary agency template.</p>
+            </div>
+
+            <div class="comparison-slider-container">
+              <!-- Before Pane: Dull Corporate Brochure -->
+              <div class="comp-pane comp-before">
+                <span class="comp-badge" style="background: rgba(255,255,255,0.1); color: #a1a1aa;">ORDINARY AGENCY SITE</span>
+                <h4 style="font-size: 1.8rem; margin-bottom: 1rem; color: #71717a;">Lifeless 5-Page Brochure</h4>
+                <p style="max-width: 480px; line-height: 1.6; color: #52525b;">
+                  • Generic WordPress theme with 40 plugins<br>
+                  • 4.2-second load time & sluggish mobile lag<br>
+                  • Static stock imagery and lifeless buttons<br>
+                  • Zero visceral emotion or brand recall
+                </p>
+              </div>
+
+              <!-- After Pane: Arsalan.Github MNC Experience -->
+              <div class="comp-pane comp-after">
+                <span class="comp-badge" style="background: #ffffff; color: #050507; font-weight: 700;">ARSALAN.GITHUB FLAGSHIP</span>
+                <h4 style="font-size: 1.8rem; margin-bottom: 1rem; color: #ffffff;">MNC-Grade Interactive Experience</h4>
+                <p style="max-width: 480px; line-height: 1.6; color: #d4d4d8;">
+                  • Bespoke Liquid Glass design system & WebGL 3D depth<br>
+                  • Sub-second TTFB, smooth 60 FPS transitions<br>
+                  • Magnetic cursor physics & tactile micro-interactions<br>
+                  • High-converting WhatsApp & lead automation flows
+                </p>
+              </div>
+
+              <!-- Draggable Glass Handle -->
+              <div class="comp-handle">
+                <div class="comp-handle-knob">⇄</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 1: Who is Arsalan? -->
+          <div class="fade-in-on-view" style="margin-bottom: 4rem;">
+            <h2 style="font-size: 1.85rem; margin-bottom: 1.25rem;">Who is Arsalan?</h2>
+            <p class="subtitle" style="max-width: 100%; margin-bottom: 1.25rem;">
+              I’m an independent creative technologist and web architect. While traditional agencies spend three months pitching wireframes in PowerPoint and another three months delegating offshore templates, I sit down with code, WebGL shaders, and typography to build real, tactile web experiences.
+            </p>
+            <p class="subtitle" style="max-width: 100%;">
+              Arsalan.Github was founded on a simple realization: the web has gotten desperately boring. Most corporate websites look like identical Bootstrap clones with different stock photos. My mission is to give ambitious founders and businesses digital flagships that hit like an Apple product release.
+            </p>
+          </div>
+
+          <!-- Section 2: Technical Arsenal with Zero-Gravity Physics Playground -->
+          <div class="fade-in-on-view" style="margin-bottom: 4rem;">
+            <h2 style="font-size: 1.85rem; margin-bottom: 0.5rem;">The Zero-Gravity Technical Arsenal</h2>
+            <p class="subtitle" style="font-size: 0.95rem; margin-bottom: 1.25rem;">Hover, fling, or bump the floating technology molecules below to test real-time kinetic collision physics.</p>
+            <div class="tech-physics-box">
+              <canvas id="tech-physics-canvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Section 3: Call to Action -->
+          <div class="liquid-glass-card" style="text-align: center; padding: 3.5rem 2rem;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Ready to ditch the lifeless brochure?</h3>
+            <p class="subtitle" style="margin: 0 auto 2.2rem;">Let’s build a digital flagship that sets a completely new benchmark in your industry.</p>
+            <a href="#contact" class="btn btn-primary magnetic-btn">Let's Discuss Your Vision</a>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 3: SERVICES PAGE — Capabilities & Deliverables
+         ==================================================================== -->
+    <div id="view-services" class="page-view" style="display: none;">
+      <section class="section-padding" style="padding-top: calc(var(--nav-height) + 4rem);">
+        <div class="container">
+          
+          <div style="max-width: 750px; margin-bottom: 3.5rem;">
+            <span class="micro-label">CAPABILITIES & DELIVERABLES</span>
+            <h1 class="headline-section" style="margin-top: 1rem; font-size: clamp(2.4rem, 5vw, 4.2rem);">
+              Interactive capabilities designed to outperform.
+            </h1>
+            <p class="subtitle" style="margin-top: 1rem;">
+              Every service is delivered with bespoke design, zero template bloat, clean GitHub source code, and responsive optimization across all modern devices.
+            </p>
+          </div>
+
+          <!-- Services Grid -->
+          <div style="display: flex; flex-direction: column; gap: 2.5rem;">
+            
+            <!-- Service 1: Interactive Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 01</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">Interactive Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Websites with meaningful interactions, fluid motion, and engaging interfaces. We transform passive readers into active explorers with cursor-following physics, custom micro-interactions, and magnetic navigation.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Magnetic UI Physics</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Scroll-Triggered Reveals</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Fluid Page Transitions</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About Interactive Sites</a>
+            </div>
+
+            <!-- Service 2: 3D Animated Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 02</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">3D Animated Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Web experiences featuring real-time 3D elements, depth, immersive visuals, and advanced WebGL animations. Using Three.js, we construct custom 3D glass models, spatial product showcases, and interactive 3D hero moments.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Three.js & WebGL</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Custom Glass Shaders & Refraction</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Touch & Cursor Responsiveness</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About 3D Websites</a>
+            </div>
+
+            <!-- Service 3: Business Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 03</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">Business Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Premium websites designed to establish an authoritative online presence. Tailored for consultancies, clinical practices, high-ticket services, and tech startups seeking immediate international credibility.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">MNC-Level Visual Branding</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">High-Conversion Lead Funnels</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Direct WhatsApp & CRM Flow</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About Business Sites</a>
+            </div>
+
+            <!-- Service 4: Portfolio Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 04</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">Portfolio Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Personal and professional websites that showcase skills, case studies, and creative work with unforgettable punch. Designed for creators, architects, developers, and executives who refuse to look ordinary.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Editorial Typography Layouts</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Dynamic Case Study Galleries</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">High-Contrast Identity</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About Portfolios</a>
+            </div>
+
+            <!-- Service 5: E-commerce Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 05</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">E-commerce Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Online shopping experiences with clear navigation, functional shopping flows, and luxury-tier product presentations. Built for seamless payments, inventory synchronization, and blazing fast product filters.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Instant Checkout Architecture</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Interactive 360 Product Views</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Secure Payment Gateway Setup</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About E-commerce</a>
+            </div>
+
+            <!-- Service 6: AI-Powered Websites -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 06</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">AI-Powered Websites</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Websites incorporating useful AI-powered capabilities: automated conversational agents, intelligent dynamic search, personalized user journeys, and smart content recommendation engines.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Custom AI Chatbots</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Dynamic Real-time Personalization</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">API Integration & Automation</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About AI Websites</a>
+            </div>
+
+            <!-- Service 7: Website Redesign -->
+            <div class="liquid-glass-card tilt-card" style="padding: 3rem;">
+              <span class="micro-label">SERVICE 07</span>
+              <h2 style="font-size: 2rem; margin: 0.6rem 0;">Website Redesign</h2>
+              <p class="subtitle" style="max-width: 900px;">
+                Transform outdated, sluggish websites into modern, responsive, and visually stunning digital experiences. We preserve your existing SEO equity while completely overhauling your visual identity and technical foundation.
+              </p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0;">
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Legacy Code Migration</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Mobile-First Responsive Rebuild</span>
+                <span class="spec-item" style="padding: 0.4rem 0.9rem; font-size: 0.8rem;">Core Web Vitals Speed Overhaul</span>
+              </div>
+              <a href="#contact" class="btn btn-primary magnetic-btn">Enquire About Redesign</a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- ====================================================================
+         VIEW 4: CONTACT PAGE — Clean Luxury Channels & Project Form
+         ==================================================================== -->
+    <div id="view-contact" class="page-view" style="display: none;">
+      <section class="section-padding" style="padding-top: calc(var(--nav-height) + 4rem);">
+        <div class="container">
+          
+          <div style="max-width: 750px; margin-bottom: 3.5rem;">
+            <span class="micro-label">DIRECT CHANNELS</span>
+            <h1 class="headline-section" style="margin-top: 0.8rem; font-size: clamp(2.4rem, 5vw, 4.2rem);">
+              Let's build something unforgettable.
+            </h1>
+            <p class="subtitle" style="margin-top: 0.8rem;">
+              Reach out directly on WhatsApp for instantaneous response, or send a detailed project enquiry below.
+            </p>
+          </div>
+
+          <div class="contact-layout-grid">
+            
+            <!-- Left Column: Direct Contact Cards Stack -->
+            <div class="contact-cards-stack">
+              
+              <!-- Direct WhatsApp Card -->
+              <a href="https://wa.me/919135944050?text=Hi%20Arsalan,%20I'm%20interested%20in%20building%20a%20website%20with%20Arsalan.Github." target="_blank" class="channel-card-luxury">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                  <div class="channel-icon-box" style="background: rgba(37, 211, 102, 0.15); border-color: rgba(37, 211, 102, 0.3); color: #25D366;">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase;">Instant WhatsApp Chat</span>
+                    <h4 style="font-size: 1.15rem; margin-top: 0.2rem;">+91 9135944050</h4>
+                  </div>
+                </div>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+
+              <!-- Direct Email Card -->
+              <a href="mailto:arsalan.github@gmail.com" class="channel-card-luxury">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                  <div class="channel-icon-box" style="color: #ffffff;">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase;">Official Direct Email</span>
+                    <h4 style="font-size: 1.15rem; margin-top: 0.2rem;">arsalan.github@gmail.com</h4>
+                  </div>
+                </div>
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+
+              <!-- Availability Status Card with Holographic Radar Scanner -->
+              <div class="liquid-glass-card" style="padding: 2rem; display: flex; gap: 1.5rem; align-items: center;">
+                <div class="radar-wrapper">
+                  <div class="radar-ring"></div>
+                  <div class="radar-ring"></div>
+                  <div class="radar-sweep"></div>
+                  <div class="radar-center-dot"></div>
+                </div>
+                <div>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                    <span class="micro-label" style="margin: 0; color: #22c55e;">● DISPATCH HUD ACTIVE</span>
+                  </div>
+                  <h4 style="font-size: 1.15rem; margin-bottom: 0.25rem;">New Delhi (IST) • Instant Response</h4>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">Direct founder desk connection with under 15 minute response window.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Contact Orb Visual (Canvas Animation) -->
+            <div class="contact-orb-wrapper liquid-glass-card" style="padding: 0; overflow: hidden; height: 220px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <canvas id="contact-orb-canvas" style="display:block; width:100%; height:100%;"></canvas>
+              <div style="position:absolute; bottom:1.25rem; left:0; right:0; text-align:center;">
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase;">Arsalan.Github · Operational</span>
+              </div>
+            </div>
+
+            <!-- Right Column: Clean Luxury Project Enquiry Form -->
+            <div class="liquid-glass-card" style="padding: 2.75rem;">
+              <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;">Project Specifications</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                Fill out your details below. We'll format your scope and connect you directly via WhatsApp or official email.
+              </p>
+
+              <form id="project-enquiry-form">
+                <div class="form-group">
+                  <label class="form-label" for="enquiry-name">Your Full Name *</label>
+                  <input type="text" id="enquiry-name" class="form-input" placeholder="e.g. Arsalan" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enquiry-email">Work Email *</label>
+                  <input type="email" id="enquiry-email" class="form-input" placeholder="e.g. founder@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Architecture Required *</label>
+                  <div class="chip-grid-selector">
+                    <button type="button" class="arch-chip active" data-value="Interactive Website">Interactive Motion</button>
+                    <button type="button" class="arch-chip" data-value="3D Animated Website">3D WebGL Glass</button>
+                    <button type="button" class="arch-chip" data-value="Business Website">Business Flagship</button>
+                    <button type="button" class="arch-chip" data-value="Portfolio Website">Portfolio</button>
+                    <button type="button" class="arch-chip" data-value="E-commerce Website">E-commerce</button>
+                    <button type="button" class="arch-chip" data-value="AI-Powered Website">AI-Powered</button>
+                    <button type="button" class="arch-chip" data-value="Website Redesign">Website Redesign</button>
+                  </div>
+                  <select id="enquiry-service" class="form-select" style="display:none;" required>
+                    <option value="Interactive Website">Interactive Website (Liquid Motion & Physics)</option>
+                    <option value="3D Animated Website">3D Animated Website (Three.js / WebGL)</option>
+                    <option value="Business Website">Business Website (MNC-Grade Digital Flagship)</option>
+                    <option value="Portfolio Website">Portfolio Website (Creator / Personal Brand)</option>
+                    <option value="E-commerce Website">E-commerce Website (High Conversion Store)</option>
+                    <option value="AI-Powered Website">AI-Powered Website</option>
+                    <option value="Website Redesign">Website Redesign (Legacy Overhaul)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enquiry-budget">Estimated Budget (Optional)</label>
+                  <input type="text" id="enquiry-budget" class="form-input" placeholder="e.g. ₹40,000 / $1,500 / Flexible">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="enquiry-description">Project Vision & Goals *</label>
+                  <textarea id="enquiry-description" class="form-textarea" placeholder="Describe the goal of your site, key features, or any inspirational design references..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary magnetic-btn" style="width: 100%; padding: 1.1rem; font-size: 0.95rem;">
+                  <span>Submit Project Enquiry</span>
+                  <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Working Enquiry Confirmation Modal -->
+  <div class="modal-overlay" id="enquiry-confirmation-modal">
+    <div class="modal-content">
+      <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); color: #22c55e; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h3 style="font-size: 1.45rem; margin-bottom: 0.5rem;">Enquiry Formatted!</h3>
+      <div id="modal-summary-content"></div>
+      <button class="btn btn-glass" id="modal-close-btn" style="margin-top: 1rem; width: 100%;">
+        Close
+      </button>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="brand-link" style="margin-bottom: 0.5rem;">
+            <span class="brand-icon">A</span>
+            <span style="font-size: 1rem;">Arsalan.Github</span>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 450px;">
+            Your Vision. Our Code. Unbelievable Sites. MNC-grade interactive websites and 3D digital experiences.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 2rem;">
+          <a href="#home" style="color: var(--text-secondary); transition: color 0.2s;">Home</a>
+          <a href="#about" style="color: var(--text-secondary); transition: color 0.2s;">About</a>
+          <a href="#services" style="color: var(--text-secondary); transition: color 0.2s;">Services</a>
+          <a href="#contact" style="color: var(--text-secondary); transition: color 0.2s;">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Arsalan.Github. All rights reserved.
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 0.8rem;">
+          Designed & Engineered with Liquid Motion & Three.js.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/signature-ending.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
