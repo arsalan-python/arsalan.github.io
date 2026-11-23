@@ -1,6 +1,6 @@
 /* ==========================================================================
-   ARSALAN.GITHUB — GPU RAYMARCHED LIQUID MERCURY PHYSICS ENGINE (V2 ULTRA)
-   - Dynamic Velocity-Based Fluid Stretching
+   ARSALAN.GITHUB — GPU RAYMARCHED LIQUID MERCURY PHYSICS ENGINE (V3 ULTRA SMOOTH)
+   - Dynamic Fluid Stretching with Zero Boundary Clipping
    - Interactive Click Shockwaves & Surface Ripples
    - Chromatic Aberration & Platinum Specular Optics
    - Real-Time Ferrofluid Magnetic Tendrils
@@ -64,15 +64,15 @@
 
       // Harmonic fluid ripple based on cursor velocity
       float velMag = length(u_velocity);
-      float liquidRipple = sin(p.x * 5.0 + t * 1.5) * cos(p.y * 5.0 + t * 1.2) * (0.025 + velMag * 0.06);
+      float liquidRipple = sin(p.x * 5.0 + t * 1.5) * cos(p.y * 5.0 + t * 1.2) * (0.025 + velMag * 0.05);
 
       // Central liquid core with fluid deformation
-      vec3 corePos = vec3(0.0, sin(t * 0.7) * 0.09, 0.0);
-      corePos.xy += u_velocity * 0.15; // Viscous lag in direction of movement
-      float d = sdSphere(p - corePos, 0.68 + liquidRipple + shockWave);
+      vec3 corePos = vec3(0.0, sin(t * 0.7) * 0.08, 0.0);
+      corePos.xy += u_velocity * 0.12;
+      float d = sdSphere(p - corePos, 0.62 + liquidRipple + shockWave);
 
-      // Magnetic attractor target from mouse
-      vec3 target = vec3(u_mouse.x * 1.65, u_mouse.y * 1.25, 0.25);
+      // Clamped & scaled magnetic attractor target so droplets never touch canvas edges
+      vec3 target = vec3(clamp(u_mouse.x, -0.85, 0.85) * 1.05, clamp(u_mouse.y, -0.85, 0.85) * 0.95, 0.2);
 
       // 7 Satellite Molten Droplets forming organic ferrofluid tendrils
       for (int i = 0; i < 7; i++) {
@@ -80,17 +80,17 @@
         float angle = fi * 0.897 + t * 0.6; // 2*PI / 7
         
         // Base orbit with harmonic expansion
-        float r = 0.58 + sin(t * 1.4 + fi * 1.8) * 0.22;
-        vec3 baseOrbit = vec3(cos(angle) * r, sin(angle) * r, sin(angle * 2.5) * 0.25);
+        float r = 0.50 + sin(t * 1.4 + fi * 1.8) * 0.18;
+        vec3 baseOrbit = vec3(cos(angle) * r, sin(angle) * r, sin(angle * 2.5) * 0.2);
         
-        // Magnetic stretch toward target with velocity skew
-        vec3 dropTarget = target + vec3(u_velocity.x * sin(fi), u_velocity.y * cos(fi), 0.0) * 0.4;
-        vec3 dropPos = mix(baseOrbit, dropTarget + baseOrbit * 0.28, u_mouse_active * 0.82);
+        // Magnetic stretch toward target with viscous damping
+        vec3 dropTarget = target + vec3(u_velocity.x * sin(fi), u_velocity.y * cos(fi), 0.0) * 0.25;
+        vec3 dropPos = mix(baseOrbit, dropTarget + baseOrbit * 0.22, u_mouse_active * 0.75);
         
-        float dropRadius = 0.18 + sin(fi * 2.3 + t * 1.2) * 0.06;
+        float dropRadius = 0.15 + sin(fi * 2.3 + t * 1.2) * 0.05;
         float dropDist = sdSphere(p - dropPos, dropRadius);
 
-        d = smin(d, dropDist, 0.35); // Viscous surface tension blend
+        d = smin(d, dropDist, 0.38); // Viscous surface tension blend
       }
 
       return d;
@@ -124,8 +124,8 @@
     void main() {
       vec2 uv = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
 
-      // Camera setup
-      vec3 ro = vec3(0.0, 0.0, 2.5);
+      // Camera pulled back slightly for wider field-of-view — zero edge clipping
+      vec3 ro = vec3(0.0, 0.0, 2.9);
       vec3 rd = normalize(vec3(uv, -1.35));
 
       // Raymarching
@@ -141,7 +141,7 @@
           hit = true;
           break;
         }
-        if (t > 4.5) break;
+        if (t > 4.8) break;
         t += d * 0.82;
       }
 
@@ -149,7 +149,7 @@
         vec3 n = calcNormal(p);
         vec3 refl = reflect(rd, n);
 
-        // Chromatic dispersion at grazing angles (Platinum/Titanium edge sheen)
+        // Chromatic dispersion at grazing angles
         vec3 reflR = reflect(rd, normalize(n + vec3(0.015, 0.0, 0.0)));
         vec3 reflG = refl;
         vec3 reflB = reflect(rd, normalize(n - vec3(0.015, 0.0, 0.0)));
@@ -159,7 +159,7 @@
         float bCol = studioEnvironment(reflB).b;
         vec3 envColor = vec3(rCol, gCol, bCol);
 
-        // Liquid Mercury Fresnel (increases sharply at grazing angles)
+        // Liquid Mercury Fresnel
         float fresnel = pow(1.0 - max(dot(-rd, n), 0.0), 3.0);
         
         vec3 liquidBase = vec3(0.94, 0.96, 1.0);
@@ -248,11 +248,11 @@
     prevTargetX = targetMouseX;
     prevTargetY = targetMouseY;
 
-    targetMouseX = (x / rect.width) * 2.0 - 1.0;
-    targetMouseY = -((y / rect.height) * 2.0 - 1.0);
+    targetMouseX = Math.max(-1.0, Math.min(1.0, (x / rect.width) * 2.0 - 1.0));
+    targetMouseY = Math.max(-1.0, Math.min(1.0, -((y / rect.height) * 2.0 - 1.0)));
 
-    targetVelX = (targetMouseX - prevTargetX) * 2.5;
-    targetVelY = (targetMouseY - prevTargetY) * 2.5;
+    targetVelX = (targetMouseX - prevTargetX) * 2.0;
+    targetVelY = (targetMouseY - prevTargetY) * 2.0;
 
     targetMouseActive = 1.0;
   }
