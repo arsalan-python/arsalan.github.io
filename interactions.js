@@ -502,3 +502,40 @@ function initScrollReveal() {
   }, { threshold: 0.12 });
   els.forEach(el => obs.observe(el));
 }
+/* 13. Interactive Problem Statement Spotlight, Parallax & Shockwave */
+(function initProblemStatementInteraction() {
+  const box = document.querySelector('.problem-statement-box');
+  if (!box) return;
+
+  box.addEventListener('mousemove', (e) => {
+    const rect = box.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    // Set spotlight center
+    box.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+    box.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+
+    // Subtle 3D tilt
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = ((y - centerY) / centerY) * -5;
+    const tiltY = ((x - centerX) / centerX) * 5;
+    box.style.transform = `perspective(800px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg)';
+  });
+
+  box.addEventListener('click', (e) => {
+    const rect = box.getBoundingClientRect();
+    const ripple = document.createElement('div');
+    ripple.className = 'box-ripple';
+    ripple.style.left = `${e.clientX - rect.left}px`;
+    ripple.style.top = `${e.clientY - rect.top}px`;
+    box.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 900);
+  });
+})();
