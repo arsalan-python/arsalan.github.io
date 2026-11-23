@@ -504,20 +504,30 @@
   text-align: center;
 }
 
-/* Problem Statement Section */
+/* Problem Statement Section (Interactive Kinetic Glass Box) */
 .problem-statement-box {
-  background: linear-gradient(180deg, rgba(20, 21, 28, 0.4) 0%, rgba(12, 13, 16, 0.8) 100%);
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08) 0%, rgba(14, 15, 20, 0.75) 60%), rgba(10, 11, 15, 0.85);
   border: 1px solid var(--glass-border);
   border-radius: 28px;
-  padding: 4rem 2rem;
+  padding: 4.5rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  cursor: crosshair;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.problem-statement-box:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 255, 255, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 @media (min-width: 768px) {
   .problem-statement-box {
-    padding: 6rem 4rem;
+    padding: 6.5rem 4rem;
   }
 }
 
@@ -528,18 +538,56 @@
   color: var(--text-secondary);
   max-width: 950px;
   margin: 0 auto;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.problem-lead:hover {
+  color: #d4d4d8;
+  transform: scale(1.015);
 }
 
 .problem-punchline {
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 800;
   display: block;
-  margin-top: 1.5rem;
-  font-size: clamp(1.6rem, 3.8vw, 3.2rem);
-  letter-spacing: -0.03em;
-  background: linear-gradient(180deg, #ffffff 30%, #a1a1aa 100%);
+  margin-top: 1.6rem;
+  font-size: clamp(1.7rem, 4vw, 3.4rem);
+  letter-spacing: -0.035em;
+  background: linear-gradient(180deg, #ffffff 40%, #9ca3af 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.problem-statement-box:hover .problem-punchline {
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Kinetic shockwave ripple on click */
+.box-ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  animation: boxRippleAnim 0.85s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes boxRippleAnim {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 650px;
+    height: 650px;
+    opacity: 0;
+  }
 }
 
 /* Services Grid & Cards */
